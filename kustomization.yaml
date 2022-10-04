@@ -1,0 +1,14 @@
+resources:
+  - deployment.yaml
+  - configmap.yaml
+  - configmap_layer2.yaml
+
+vars:
+- name: CLUSTER
+  objref:
+    kind: ConfigMap
+    name: environment-variables
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.CLUSTER
+
